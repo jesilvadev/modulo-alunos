@@ -7,14 +7,14 @@ O módulo tem como objetivo **gerenciar o cadastro e controle de alunos** da aca
 
 ## Equipe
 
-| Integrante | Função |
-|-------------|--------|
-| **Jefferson Luan da Silva Alves** | Product Owner / Scrum Master |
-| **Francisca Samira Aquino França** | Desenvolvedora / QA |
-| **Francisca Lorrayne de Lima Santos** | Desenvolvedora / QA |
-| **Maria Herculana da Silva Souza** | Desenvolvedora / QA |
-| **Mateus Gomes Salomé** | Desenvolvedor |
-| **Pedro Damião de Oliveira Luz** | Desenvolvedor |
+| Integrante                            | Função                           |
+| ------------------------------------- | -------------------------------- |
+| **Jefferson Luan da Silva Alves**     | Product Owner / Scrum Master /QA |
+| **Francisca Samira Aquino França**    | Desenvolvedora / QA              |
+| **Francisca Lorrayne de Lima Santos** | Desenvolvedora / QA              |
+| **Maria Herculana da Silva Souza**    | Desenvolvedora / QA              |
+| **Mateus Gomes Salomé**               | Desenvolvedor                    |
+| **Pedro Damião de Oliveira Luz**      | Desenvolvedor                    |
 
 ---
 
@@ -27,26 +27,26 @@ O serviço deve estar disponível via **API REST** e acessível em container **D
 
 ## Tecnologias Utilizadas
 
-- **Linguagem:** Python  
-- **Framework:** Django REST Framework  
-- **Banco de Dados:** SQLite  
-- **Containerização:** Docker  
-- **Metodologia:** Scrum  
-- **Versionamento:** Git + GitHub  
+- **Linguagem:** Python
+- **Framework:** Django REST Framework
+- **Banco de Dados:** SQLite
+- **Containerização:** Docker
+- **Metodologia:** Scrum
+- **Versionamento:** Git + GitHub
 
 ---
 
 ## Especificações Técnicas do Módulo
 
-- **Porta padrão:** `5003`  
-- **Prefixo de rota:** `/api/v1/alunos`  
-- **Formato das respostas:** JSON  
+- **Porta padrão:** `5003`
+- **Prefixo de rota:** `/api/v1/alunos`
+- **Formato das respostas:** JSON
 - **Operações obrigatórias:**
-  - `POST /api/v1/alunos` → cadastrar novo aluno  
-  - `GET /api/v1/alunos` → listar todos os alunos  
-  - `GET /api/v1/alunos/{id}` → buscar aluno específico  
-  - `PUT /api/v1/alunos/{id}` → atualizar aluno  
-  - `DELETE /api/v1/alunos/{id}` → remover aluno  
+  - `POST /api/v1/alunos` → cadastrar novo aluno
+  - `GET /api/v1/alunos` → listar todos os alunos
+  - `GET /api/v1/alunos/{id}` → buscar aluno específico
+  - `PUT /api/v1/alunos/{id}` → atualizar aluno
+  - `DELETE /api/v1/alunos/{id}` → remover aluno
 
 ### Exemplo de Estrutura JSON
 
@@ -58,7 +58,7 @@ O serviço deve estar disponível via **API REST** e acessível em container **D
   "data_matricula": "2025-10-15",
   "instrutor_id": 1
 }
-````
+```
 
 ---
 
@@ -147,10 +147,10 @@ A aplicação estará disponível em:
 
 ## Reuniões Scrum
 
-| Evento                   | Descrição                               | Frequência       |
-| ------------------------ | --------------------------------------- | ---------------- |
-| **Sprint Planning**      | Definição das tarefas e metas da sprint | Início da sprint |
-| **Daily Scrum**          | Acompanhamento do progresso do time     | Diária (15 min)  |
-| **Sprint Review**        | Apresentação das entregas e feedback    | Final da sprint  |
+| Evento              | Descrição                               | Frequência       |
+| ------------------- | --------------------------------------- | ---------------- |
+| **Sprint Planning** | Definição das tarefas e metas da sprint | Início da sprint |
+| **Daily Scrum**     | Acompanhamento do progresso do time     | Diária (15 min)  |
+| **Sprint Review**   | Apresentação das entregas e feedback    | Final da sprint  |
 
 ---
