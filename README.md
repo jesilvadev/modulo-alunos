@@ -1,27 +1,27 @@
 # Módulo de Alunos — Sistema de Academia
 
-Este repositório contém o **microserviço do módulo de Alunos**, desenvolvido como parte do **projeto de Processo de Software**, aplicando a metodologia **Scrum**.  
-O módulo tem como objetivo **gerenciar o cadastro e controle de alunos** da academia, seguindo o contrato técnico definido no projeto.
+Este repositório contém o microserviço do módulo de Alunos, desenvolvido como parte do projeto de Processo de Software, aplicando a metodologia Scrum.  
+O módulo é responsável pelo gerenciamento completo do cadastro e controle de alunos da academia, conforme o contrato técnico do sistema.
 
 ---
 
 ## Equipe
 
-| Integrante                            | Função                           |
-| ------------------------------------- | -------------------------------- |
-| **Jefferson Luan da Silva Alves**     | Product Owner / Scrum Master /QA |
-| **Francisca Samira Aquino França**    | Desenvolvedora / QA              |
-| **Francisca Lorrayne de Lima Santos** | Desenvolvedora / QA              |
-| **Maria Herculana da Silva Souza**    | Desenvolvedora / QA              |
-| **Mateus Gomes Salomé**               | Desenvolvedor                    |
-| **Pedro Damião de Oliveira Luz**      | Desenvolvedor                    |
+| Integrante                            | Função                                            |
+| ------------------------------------- | ------------------------------------------------- |
+| **Jefferson Luan da Silva Alves**     | Product Owner / Scrum Master / Desenvolvedor / QA |
+| **Francisca Samira Aquino França**    | Desenvolvedora / QA                               |
+| **Francisca Lorrayne de Lima Santos** | Desenvolvedora / QA                               |
+| **Maria Herculana da Silva Souza**    | Desenvolvedora / QA                               |
+| **Mateus Gomes Salomé**               | Desenvolvedor                                     |
+| **Pedro Damião de Oliveira Luz**      | Desenvolvedor                                     |
 
 ---
 
 ## Objetivo do Módulo
 
-O módulo **Alunos** tem a função de **gerenciar os cadastros de alunos da academia**, permitindo realizar operações CRUD (criar, listar, buscar, atualizar e remover) de forma independente.  
-O serviço deve estar disponível via **API REST** e acessível em container **Docker**, integrando-se aos demais módulos do sistema.
+O Módulo de Alunos tem como propósito centralizar o gerenciamento de cadastros de alunos, oferecendo operações CRUD (criar, listar, buscar, atualizar e remover) de forma independente e segura.  
+O serviço é disponibilizado via API REST e executado em container Docker, podendo ser integrado a outros módulos do sistema de academia.
 
 ---
 
@@ -36,19 +36,32 @@ O serviço deve estar disponível via **API REST** e acessível em container **D
 
 ---
 
-## Especificações Técnicas do Módulo
+## Pré-requisitos
+
+Antes de iniciar, certifique-se de ter instalado:
+
+- **Python 3.12**
+- **Docker** (opcional, para execução containerizada)
+
+---
+
+## Especificações Técnicas
 
 - **Porta padrão:** `5003`
 - **Prefixo de rota:** `/api/v1/alunos`
-- **Formato das respostas:** JSON
-- **Operações obrigatórias:**
-  - `POST /api/v1/alunos` → cadastrar novo aluno
-  - `GET /api/v1/alunos` → listar todos os alunos
-  - `GET /api/v1/alunos/{id}` → buscar aluno específico
-  - `PUT /api/v1/alunos/{id}` → atualizar aluno
-  - `DELETE /api/v1/alunos/{id}` → remover aluno
+- **Formato das respostas:** `JSON`
 
-### Exemplo de Estrutura JSON
+### Endpoints
+
+| Método   | Rota                  | Descrição                |
+| -------- | --------------------- | ------------------------ |
+| `POST`   | `/api/v1/alunos`      | Cadastrar novo aluno     |
+| `GET`    | `/api/v1/alunos`      | Listar todos os alunos   |
+| `GET`    | `/api/v1/alunos/{id}` | Buscar aluno específico  |
+| `PUT`    | `/api/v1/alunos/{id}` | Atualizar dados do aluno |
+| `DELETE` | `/api/v1/alunos/{id}` | Remover aluno do sistema |
+
+### Exemplo de resposta JSON
 
 ```json
 {
@@ -88,41 +101,47 @@ modulo_alunos/
 
 ## Execução do Projeto
 
-### 1. Clonar o Repositório
+### 1.Clonar o repositório
 
 ```bash
 git clone https://github.com/seuusuario/modulo-alunos.git
 cd modulo-alunos
 ```
 
-### 2. Criar e Ativar o Ambiente Virtual
+### 2.Criar e ativar o ambiente virtual
 
 ```bash
 python -m venv venv
-venv\Scripts\activate   # Windows
-source venv/bin/activate   # Linux/Mac
+
+venv\Scripts\activate # Windows
+source venv/bin/activate # Linux/Mac
+
 ```
 
-### 3. Instalar Dependências
+### 3.Instalar dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Executar Migrações
+### 4.Aplicar migrações
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5. Rodar o Servidor Local
+### 5.Executar o servidor (porta 5003)
 
 ```bash
 python manage.py runserver 0.0.0.0:5003
 ```
 
-Acesse: **[http://localhost:5003](http://localhost:5003)**
+**URLs úteis:**
+
+- API raiz: [`http://localhost:5003/api/v1/`](http://localhost:5003/api/v1/)
+- Alunos: [`http://localhost:5003/api/v1/alunos/`](http://localhost:5003/api/v1/alunos/)
+- Admin: [`http://localhost:5003/admin/`](http://localhost:5003/admin/)
 
 ---
 
@@ -134,23 +153,13 @@ Acesse: **[http://localhost:5003](http://localhost:5003)**
 docker build -t modulo-alunos .
 ```
 
-### Execução do container
+### Executar container
 
 ```bash
 docker run -p 5003:5003 modulo-alunos
 ```
 
-A aplicação estará disponível em:
+A aplicação ficará disponível em:
 **[http://localhost:5003/api/v1/alunos](http://localhost:5003/api/v1/alunos)**
-
----
-
-## Reuniões Scrum
-
-| Evento              | Descrição                               | Frequência       |
-| ------------------- | --------------------------------------- | ---------------- |
-| **Sprint Planning** | Definição das tarefas e metas da sprint | Início da sprint |
-| **Daily Scrum**     | Acompanhamento do progresso do time     | Diária (15 min)  |
-| **Sprint Review**   | Apresentação das entregas e feedback    | Final da sprint  |
 
 ---
