@@ -99,67 +99,94 @@ modulo_alunos/
 
 ---
 
-## Execução do Projeto
+## Instalação
 
-### 1.Clonar o repositório
+### A) Local
+
+1. Clonar o repositório
 
 ```bash
 git clone https://github.com/seuusuario/modulo-alunos.git
 cd modulo-alunos
 ```
 
-### 2.Criar e ativar o ambiente virtual
+2. Criar e ativar o ambiente virtual
 
 ```bash
 python -m venv venv
-
-venv\Scripts\activate # Windows
+venv\Scripts\activate   # Windows
 source venv/bin/activate # Linux/Mac
-
 ```
 
-### 3.Instalar dependências
+3. Instalar dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4.Aplicar migrações
+4. Aplicar migrações
 
 ```bash
-python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5.Executar o servidor (porta 5003)
+### B) Docker
+
+1. Clonar o repositório
+
+```bash
+git clone https://github.com/seuusuario/modulo-alunos.git
+cd modulo-alunos
+```
+
+2. Subir (constrói a imagem, aplica migrações e mapeia a porta 5003)
+
+```bash
+docker compose up -d
+```
+
+---
+
+## Execução
+
+### A) Local
+
+1. Ativar o ambiente virtual
+
+```bash
+venv\Scripts\activate   # Windows
+source venv/bin/activate # Linux/Mac
+```
+
+2. Executar o servidor (porta 5003)
 
 ```bash
 python manage.py runserver 0.0.0.0:5003
 ```
 
-**URLs úteis:**
+3. Acessar
 
-- API raiz: [`http://localhost:5003/api/v1/`](http://localhost:5003/api/v1/)
-- Alunos: [`http://localhost:5003/api/v1/alunos/`](http://localhost:5003/api/v1/alunos/)
-- Admin: [`http://localhost:5003/admin/`](http://localhost:5003/admin/)
+- Swagger: `http://localhost:5003/api/swagger/`
+- API: `http://localhost:5003/api/v1/alunos/`
 
----
+### B) Docker
 
-## Execução com Docker
-
-### Build da imagem
+- Subir em segundo plano
 
 ```bash
-docker build -t modulo-alunos .
+docker compose up -d
 ```
 
-### Executar container
+- Abrir o Swagger automaticamente (Windows)
+
+```powershell
+./scripts/up.ps1
+```
+
+- Parar
 
 ```bash
-docker run -p 5003:5003 modulo-alunos
+docker compose down
 ```
-
-A aplicação ficará disponível em:
-**[http://localhost:5003/api/v1/alunos](http://localhost:5003/api/v1/alunos)**
 
 ---
